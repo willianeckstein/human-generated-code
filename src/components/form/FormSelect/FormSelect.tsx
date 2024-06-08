@@ -7,6 +7,7 @@ interface FormSelectProps
   options: Array<FormSelectOption>;
   register: UseFormRegister<any>;
   error?: FieldError;
+  name: string;
 }
 
 const FormSelect: React.FC<FormSelectProps> = ({

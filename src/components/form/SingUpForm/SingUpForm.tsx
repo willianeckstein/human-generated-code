@@ -5,7 +5,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { ISignUpFormValues } from './types';
 import FormField from '../FormField';
 import FormSelect from '../FormSelect';
+import type { FormSelectOption } from '../FormSelect';
 import { validationSchema } from './utils';
+
+const genderSelectOptions: Array<FormSelectOption> = [
+  { value: 'male', label: 'masculino' },
+  { value: 'female', label: 'Feminino' },
+];
 
 const SignUpForm: React.FC = () => {
   const {
@@ -31,12 +37,8 @@ const SignUpForm: React.FC = () => {
       <FormSelect
         label='Sexo'
         name='gender'
-        options={[
-          { value: 'male', label: 'masculino' },
-          { value: 'female', label: 'Feminino' },
-        ]}
+        options={genderSelectOptions}
         register={register}
-        error={errors.gender}
       />
       <FormField
         label='Telefone'
@@ -50,18 +52,8 @@ const SignUpForm: React.FC = () => {
         register={register}
         error={errors.email}
       />
-      <FormField
-        label='Rua'
-        name='street'
-        register={register}
-        error={errors.street}
-      />
-      <FormField
-        label='Número'
-        name='number'
-        register={register}
-        error={errors.number}
-      />
+      <FormField label='Rua' name='street' register={register} />
+      <FormField label='Número' name='number' register={register} />
       <FormField label='Complemento' name='complement' register={register} />
       <FormField
         label='CEP'
@@ -69,24 +61,9 @@ const SignUpForm: React.FC = () => {
         register={register}
         error={errors.zipCode}
       />
-      <FormField
-        label='Bairro'
-        name='neighborhood'
-        register={register}
-        error={errors.neighborhood}
-      />
-      <FormField
-        label='Cidade'
-        name='city'
-        register={register}
-        error={errors.city}
-      />
-      <FormField
-        label='Estado'
-        name='state'
-        register={register}
-        error={errors.state}
-      />
+      <FormField label='Bairro' name='neighborhood' register={register} />
+      <FormField label='Cidade' name='city' register={register} />
+      <FormField label='Estado' name='state' register={register} />
       <button type='submit'>Cadastrar</button>
     </form>
   );

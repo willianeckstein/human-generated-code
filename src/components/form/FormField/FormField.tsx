@@ -5,6 +5,7 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   register: UseFormRegister<any>;
   error?: FieldError;
+  name: string;
 }
 
 const FormField: React.FC<FormFieldProps> = ({
